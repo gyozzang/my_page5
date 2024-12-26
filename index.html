@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+
+        <div class="calculator">
+            <input type="text" id="resultFld">
+            <br>
+            <div class="btn">
+            <input type="button" value="7" onclick="btn_click(7)" class="n_btn">
+            <input type="button" value="8" onclick="btn_click(8)" class="n_btn">
+            <input type="button" value="9" onclick="btn_click(9)" class="n_btn">
+            <input type="button" value="/" onclick="cal('/')" class="a_btn">
+            <br>
+            <input type="button" value="4" onclick="btn_click(4)" class="n_btn">
+            <input type="button" value="5" onclick="btn_click(5)" class="n_btn">
+            <input type="button" value="6" onclick="btn_click(6)" class="n_btn">
+            <input type="button" value="*" onclick="cal('*')" class="a_btn">
+            <br>
+            <input type="button" value="1" onclick="btn_click(1)" class="n_btn">
+            <input type="button" value="2" onclick="btn_click(2)" class="n_btn">
+            <input type="button" value="3" onclick="btn_click(3)" class="n_btn">
+            <input type="button" value="-" onclick="cal('-')" class="a_btn">
+            <br>
+            <input type="button" value="." onclick="btn_click('.')" class="n_btn">
+            <input type="button" value="0" onclick="btn_click(0)" class="n_btn">
+            <input type="button" value="+" onclick="cal('+')" class="n_btn">
+            <input type="button" value="%" onclick="cal('%')" class="a_btn">
+            <br>
+            <input type="button" value="=" onclick="compute()" class="b_btn">
+            <input type="button" value="C" onclick="clear_del()" class="b_btn">
+            </div>
+        </div>
+    <script>
+        var num =0 ;
+        var symbol ;
+
+        function btn_click (a) {
+            resultFld.value += a;
+        }
+
+        function cal(b) {
+            var firstNum = (document.getElementById("resultFld").value);
+            num = firstNum;
+            symbol = b ;
+            return document.getElementById("resultFld").value = "";
+        }
+
+        function compute () {
+            var secNum = parseFloat(document.getElementById("resultFld").value);
+            var result ;
+            switch (symbol) {
+                case '+' : result = Number(num) + Number(secNum) ; 
+                document.getElementById("resultFld").value = result; 
+                break;
+                case '-' : result = Number(num) - Number(secNum) ; 
+                document.getElementById("resultFld").value = result;
+                break;
+                case '*' : result = Number(num) * Number(secNum) ; 
+                document.getElementById("resultFld").value = result;
+                break;
+                case '/' : result = Number(num) / Number(secNum) ; 
+                document.getElementById("resultFld").value = result;
+                break;
+                case '%' : result = Number(num) % Number(secNum) ; 
+                document.getElementById("resultFld").value = result;
+                break;
+            }        
+        }
+
+        function clear_del() {
+            document.getElementById("resultFld").value = "";
+            num = 0;
+        }
+        
+    </script>
+</body>
+</html>
